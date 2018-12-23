@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Film  implements Serializable{
 	/**
@@ -85,7 +87,7 @@ public class Film  implements Serializable{
 	public Long getId_film() {
 		return id_film;
 	}
-
+   @JsonIgnore
 	public Set<Regarder> getRegards() {
 		return regards;
 	}
@@ -93,7 +95,7 @@ public class Film  implements Serializable{
 	public void setRegards(Set<Regarder> regards) {
 		this.regards = regards;
 	}
-
+    @JsonIgnore
 	public Set<Personne> getPersonnes() {
 		return personnes;
 	}

@@ -16,26 +16,25 @@ public class GestionFilmMetierImpl  implements GestionFilmMetier{
 
 	@Override
 	public Film addFilm(Film film) {
-		// TODO Auto-generated method stub
-		return null;
+		 return dao.addFilm(film);
+		
 	}
 
 	@Override
 	public List<Film> getListFilms() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getListFilms();
 	}
 
 	@Override
 	public Film updateFilm(Film film) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.updateFilm(film);
 	}
 
 	@Override
 	public Long deleteFilm(Long id_film) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.deleteFilm(id_film);
 	}
 
 }
