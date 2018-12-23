@@ -35,8 +35,8 @@ public class FilmController {
 		return metier.updateFilm(film);
 	}
     @RequestMapping(value="/film/{id}",method=RequestMethod.DELETE)
-	public Long deleteFilm(@PathVariable Long id_film) {
-		return metier.deleteFilm(id_film);
+	public Long deleteFilm(@PathVariable("id") Long id) {
+		return metier.deleteFilm(id);
 	}
 	
 	
