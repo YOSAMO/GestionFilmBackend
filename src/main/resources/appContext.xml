@@ -33,4 +33,8 @@
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<context:annotation-config></context:annotation-config>
+	<bean id="dao" class="ma.ensa.gestion.dao.GestionFilmDaoIpml"/>
+	<bean id="metier" class="ma.ensa.gestion.metier.GestionFilmMetierImpl">
+	<property name="dao" ref="dao"/>
+	</bean>
 </beans>

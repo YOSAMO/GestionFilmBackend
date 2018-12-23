@@ -1,10 +1,10 @@
-package ma.ensa.gestion.dao;
+package ma.ensa.gestion.metier;
 
 import java.util.List;
 
 import ma.ensa.gestion.entities.Film;
 
-public interface GestionFilmDao {
+public interface GestionFilmMetier {
 	public Film addFilm(Film film);
 
 	public List<Film> getListFilms();

@@ -1,6 +1,8 @@
 package ma.ensa.gestion.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
@@ -23,6 +26,9 @@ public class Personne implements Serializable {
 	protected String prenom;
 	protected String tel;
 	protected String mail;
+	
+	@ManyToMany(mappedBy="personnes")
+	protected Set<Film> films=new HashSet<Film>();
 	public Personne() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -60,6 +66,12 @@ public class Personne implements Serializable {
 	}
 	public Long getId_personne() {
 		return id_personne;
+	}
+	public Set<Film> getFilms() {
+		return films;
+	}
+	public void setFilms(Set<Film> films) {
+		this.films = films;
 	}
 	
 	

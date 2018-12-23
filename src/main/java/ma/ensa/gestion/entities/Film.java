@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -27,7 +30,13 @@ public class Film  implements Serializable{
 	
 	@OneToMany(mappedBy="pk.film")
 	private Set<Regarder> regards=new HashSet<Regarder>();
-
+    
+	@ManyToMany
+	@JoinTable(name="film_personne",
+	joinColumns=@JoinColumn(name="id_film"),
+	inverseJoinColumns=@JoinColumn(name="id_personne"))
+	private Set<Personne> personnes=new HashSet<Personne>();
+	
 	public Film() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -85,6 +94,16 @@ public class Film  implements Serializable{
 		this.regards = regards;
 	}
 
+	public Set<Personne> getPersonnes() {
+		return personnes;
+	}
+
+	public void setPersonnes(Set<Personne> personnes) {
+		this.personnes = personnes;
+	}
+
+	
+	
 	
 
 }
